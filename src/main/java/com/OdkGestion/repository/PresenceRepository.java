@@ -11,6 +11,6 @@ import com.OdkGestion.model.Presence;
 
 public interface PresenceRepository extends JpaRepository<Presence, Long> {
 
-	List<Presence> findByIntevallDate(Date start, Date end);
+	List<Presence> findByDateBetween(Date startDate, Date endDate);
 	
 }
