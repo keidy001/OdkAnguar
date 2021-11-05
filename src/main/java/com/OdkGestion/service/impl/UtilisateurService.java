@@ -1,6 +1,9 @@
 package com.OdkGestion.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.OdkGestion.model.Presence;
 import com.OdkGestion.model.Utilisateur;
 
 public interface UtilisateurService {

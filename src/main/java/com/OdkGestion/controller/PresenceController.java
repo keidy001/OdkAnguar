@@ -26,7 +26,6 @@ public class PresenceController {
 	@Autowired
 	private PresenceService presenceService;
 	@Autowired
-	PresenceRepository presenceRepo;
 	@PostMapping()
 	public ResponseEntity<Presence> saveApprenant(@RequestBody Presence presence){
 		return new ResponseEntity<Presence>(presenceService.savePresence(presence),HttpStatus.CREATED);
@@ -53,9 +52,8 @@ public class PresenceController {
 		
 	}
 	
-	@GetMapping("/jours")
-	public ResponseEntity<List<Presence>> getLaptopsByCreatedDate (@RequestParam Date startDate,
-																@RequestParam Date endDate) {
-		return new ResponseEntity<List<Presence>>(presenceRepo.findByIntevallDate(startDate, endDate), HttpStatus.OK);
+	@RequestMapping("/date")
+	public ResponseEntity<List<Presence>> getPresencesByDateBetween (@RequestParam Date startDate, @RequestParam Date endDate) {
+		return new ResponseEntity<List<Presence>>(presenceService.findByPresenceBetween(startDate, endDate), HttpStatus.OK);
 	}
 }

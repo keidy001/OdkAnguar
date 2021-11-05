@@ -1,6 +1,7 @@
 package com.OdkGestion.service.impl;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,10 +67,14 @@ public class PresenceServiceimpl implements PresenceService {
 	}
 
 	@Override
-	public List<Presence> findByJour(LocalDate price) {
+	public List<Presence> findByPresenceBetween(Date startDate, Date endDate) {
 		
 		return null;
 	}
+
+	
+
+
 
 	
 	
