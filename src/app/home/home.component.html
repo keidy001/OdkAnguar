@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="Utilisateur">Utilisateur</a>
+      
+      <a mat-list-item href="" routerLink="login">login</a>
+      
+      <a mat-list-item href="modifier-donneestilisateur">modifier-donneestilisateur</a>
+      <a mat-list-item href="liste-de-presence">liste-de-presence</a>
+
+      <a mat-list-item href="liste-des-utilisateurs">liste-des-utilisateurs</a>
+      <a mat-list-item href="module-de-pointage">module-de-pointage</a>
+      
+      <a mat-list-item href="liste-de-presence-date">liste-de-presence-date</a>
+      <a mat-list-item href="modifier-mot-de-passe">modifier mot de passe</a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>ProjetDash</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

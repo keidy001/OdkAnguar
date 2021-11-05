@@ -1,0 +1,27 @@
+body{
+    font-family: 'open Sans',sans-serif;
+  }
+  
+  table{
+    border-collapse: collapse;
+  }
+  thead th,tfoot td{
+    background-color: RGB(110,100,30);
+    color: #FFF;
+    text-transform : uppercase ;
+  }
+  td,th{
+    border: 2px solid rgb(216, 212, 206);
+    padding: 20px;
+  }
+  
+  th{
+    background-color: rgb(115, 243, 168);
+  }
+  .paire{
+    background-color: rgb(251, 251, 251);
+  }
+  
+  .impaire{
+    background-color: rgb(255, 245, 245);
+  }
