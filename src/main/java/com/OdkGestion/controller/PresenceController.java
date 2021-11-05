@@ -2,7 +2,6 @@ package com.OdkGestion.controller;
 
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.OdkGestion.model.Presence;
 import com.OdkGestion.model.Utilisateur;
+import com.OdkGestion.repository.PresenceRepository;
 import com.OdkGestion.service.impl.PresenceService;
 import com.OdkGestion.service.impl.UtilisateurService;
 @RestController
@@ -25,6 +25,8 @@ import com.OdkGestion.service.impl.UtilisateurService;
 public class PresenceController {
 	@Autowired
 	private PresenceService presenceService;
+	@Autowired
+	PresenceRepository presenceRepo;
 	@PostMapping()
 	public ResponseEntity<Presence> saveApprenant(@RequestBody Presence presence){
 		return new ResponseEntity<Presence>(presenceService.savePresence(presence),HttpStatus.CREATED);
@@ -52,7 +54,8 @@ public class PresenceController {
 	}
 	
 	@GetMapping("/jours")
-	public ResponseEntity<List<Presence>> getPresenceByDate(@RequestParam Date jour) {
-		return new ResponseEntity<List<Presence>>(presenceService.findByJour(jour), HttpStatus.OK);
+	public ResponseEntity<List<Presence>> getLaptopsByCreatedDate (@RequestParam Date startDate,
+																@RequestParam Date endDate) {
+		return new ResponseEntity<List<Presence>>(presenceRepo.findByIntevallDate(startDate, endDate), HttpStatus.OK);
 	}
 }
